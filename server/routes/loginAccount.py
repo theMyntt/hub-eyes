@@ -1,15 +1,24 @@
 from flask import jsonify
 
 import sqlite3
+import hashlib
+import os
 
 def loginAccount(postData):
+  def hashPassword(pw_text):
+    sha256 = hashlib.sha256()
+    sha256.update(pw_text.encode("utf-8"))
+    haskHex = sha256.hexdigest()
+    return haskHex
+
   try: 
-    conn = sqlite3.connect('data/sqlite.db')
+    sqlPath = os.path.dirname(os.path.abspath(__file__)) + "/../data/sqlite.db"
+    conn = sqlite3.connect(sqlPath)
     cursor = conn.cursor() 
 
     # return postData
     try:
-      query = f"SELECT EM_USER, PW_USER FROM USER WHERE EM_USER = '{postData[0]}' AND PW_USER = '{postData[1]}'"
+      query = f"SELECT EM_USER, PW_USER FROM USER WHERE EM_USER = '{postData[0]}' AND PW_USER = '{hashPassword(postData[1])}'"
       cursor.execute(query)
 
       row = cursor.fetchall()

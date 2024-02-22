@@ -16,9 +16,10 @@ def create():
         post.get("EM_USER"),
         post.get("PW_USER")
       ]
+      
+      return createAccount(postData)
     except:
-      return jsonify({"message": "Bad request"})
-    return createAccount(postData)
+      return jsonify({"message": "Erro interno"})
   else:
     return jsonify({"message": "Method not allowed"})
   
