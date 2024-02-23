@@ -1,8 +1,10 @@
 from flask import Flask, request, jsonify
 from routes.createAccount import createAccount
 from routes.loginAccount import loginAccount
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route("/api/account/create", methods=["POST"])
 def create():
@@ -34,9 +36,13 @@ def login():
         post.get("PW_USER")
       ]
       
+      # return postData
+
       return loginAccount(postData)
     except:
-      return jsonify({"message": "Bad request"})
+      return jsonify({"message": "Erro ao fazer login"})
+  else:
+    return jsonify({"message": "Method not allowed"})
 
 if __name__ == "__main__":
   app.run(debug=True)
