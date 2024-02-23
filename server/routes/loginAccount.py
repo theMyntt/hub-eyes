@@ -18,18 +18,18 @@ def loginAccount(postData):
 
     # return postData
     try:
-      query = f"SELECT EM_USER, PW_USER FROM USER WHERE EM_USER = '{postData[0]}' AND PW_USER = '{hashPassword(postData[1])}'"
+      query = f"SELECT NM_USER, EM_USER FROM USER WHERE EM_USER = '{postData[0]}' AND PW_USER = '{hashPassword(postData[1])}'"
       cursor.execute(query)
 
       row = cursor.fetchall()
       if row:
-        return row
+        return jsonify(row)
       else:
-        return jsonify({"message": "Usuário não encontrado"})
+        return "Usuário não encontrado"
     except:
-      return jsonify({"message": "Usuário não encontrado"})
+      return "Usuário não encontrado"
     finally:
       cursor.close()
       conn.close()
   except:
-    return jsonify({"message": "Erro ao conectar com o banco de dados"})
+    return "Erro ao conectar com o banco de dados"
