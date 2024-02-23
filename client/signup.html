@@ -12,7 +12,15 @@
   <div id="wrapperLogin">
     <div class="content">
       <h2 id="login-text">Sign in to your account</h2>
-      <form id="login-form" class="card" method="post" onsubmit="loginOnSubmit()">
+      <form id="login-form" class="card" method="post" onsubmit="createOnSubmit()">
+        <label>
+          Name:
+          <input type="text" name="NM_USER" id="NM_USER" placeholder="Enter your name" autocomplete="off" value="" required/>
+        </label>
+        <label>
+          Cellphone:
+          <input type="text" name="TF_USER" id="TF_USER" placeholder="Enter your cellphone" autocomplete="off" value="" required/>
+        </label>
         <label>
           E-mail:
           <input type="email" name="EM_USER" id="EM_USER" placeholder="Enter email" autocomplete="off" value="" required/>
@@ -21,8 +29,12 @@
           Password:
           <input type="password" name="PW_USER" id="PW_USER" placeholder="Enter Password" minlength="8" autocomplete="off" value="" required/>
         </label>
-        <label><input type="submit" value="Login" id="login-btn" /></label>
-        <span>Dont have an account? <a href="signup.html">Create one</a></span>
+        <label>
+          Confirm password:
+          <input type="password" name="PW_USER_CONF" id="PW_USER_CONF" placeholder="Confirm your password" minlength="8" autocomplete="off" value="" required/>
+        </label>
+        <label><input type="submit" value="Signup" id="login-btn" /></label>
+        <span>Have an account? <a href="/">Log in</a></span>
       </form>
     </div>
   </div>

@@ -26,6 +26,7 @@
   margin: 0;
   padding: 0;
   font-family: OpenSans, sans-serif;
+  box-sizing: border-box;
 }
 
 :root {
@@ -35,6 +36,11 @@
 #login-text {
   text-align: center;
   margin-bottom: 10px;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
 }
 
 #login-form,
@@ -90,4 +96,72 @@ input:focus {
   align-items: center;
   overflow: hidden;
   flex-direction: column;
+}
+
+header {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1cm;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.1);
+  nav { 
+    ul {
+      list-style-type: none;
+      li {
+        /* margin-bottom: 10px; */
+        height: 40px;
+        transition: 0.3s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+        a {
+          color: #000;
+          text-decoration: none;
+          transition: 0.3;
+        }
+      }
+      li:hover {
+        background-color: rgb(79, 70, 229);
+        a {
+          color: #fff; 
+        }
+      }
+    }
+  } */
+}
+#menu-icon {
+  height: 28px;
+}
+#navbar {
+  position: absolute;
+  top: 100px;
+  right: 1cm;
+  display: none;
+  width: 150px;
+  text-align: center;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+#navbar.active {
+  display: block;
+}
+
+@media (max-width: 900px) {
+  #navbar {
+    top: 80px;
+    right: 0;
+    left: 0;
+    width: 100%;
+  }
+  #navbar ul li{
+    justify-content: start;
+    padding: 0 1cm;
+  }
+  #login-form {
+    width: auto;
+  }
 }
