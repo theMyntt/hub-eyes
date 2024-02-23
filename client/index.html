@@ -5,10 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./css/style.css" />
   <script src="./js/jquery3.7.1.min.js"></script>
-  <script src="./js/script.js"></script>
-  <title>Document</title>
+  <script src="./js/script.js" defer></script>
+  <title>Login</title>
 </head>
 <body>
-  
+  <div id="wrapperLogin">
+    <div id="content">
+      <h2 id="login-text">Sign in to your account</h2>
+      <form id="login-form" class="card" method="post" onsubmit="loginOnSubmit()">
+        <label>
+          E-mail:
+          <input type="email" name="EM_USER" id="EM_USER" placeholder="Enter email" autocomplete="off" value="" required/>
+        </label>
+        <label>
+          Password:
+          <input type="password" name="PW_USER" id="PW_USER" placeholder="Enter Password" minlength="8" autocomplete="off" value="" required/>
+        </label>
+        <label><input type="submit" value="Login" id="login-btn" /></label>
+      </form>
+    </div>
+  </div>
 </body>
 </html>
