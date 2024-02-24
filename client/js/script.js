@@ -76,12 +76,10 @@ function createOnSubmit() {
         data: JSON.stringify(postData),
         contentType: "application/json",
         success: function (res) {
-          if (res != "Erro ao inserir") {
-            console.log("funcionou");
-            alert("Usuário cadastrado");
-            
+          if (res !== "Erro ao inserir") {
+            alert("Cadastrado");
 
-            window.location.href = "/";
+            window.location.href = "/"
           } else {
             alert("Erro interno");
           }
@@ -96,4 +94,6 @@ function createOnSubmit() {
   } else {
     alert("Passwords does not match.");
   }
+
+  // window.open("/");
 }
